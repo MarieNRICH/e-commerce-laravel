@@ -18,9 +18,17 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'firstname',
+        'lastname',
+        'pseudo',
+        'image',
+        'address',
+        'zipcode',
+        'city',
+        'phone_number',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -42,4 +50,33 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // nom au pluriel car un user peut poster pls quacks
+    // cardinalité 0,n
+    public function reviews()
+    {
+        return $this->hasMany(Reviews::class);
+    }
+
+    // nom au pluriel car un user peut poster pls comments
+    // cardinalité 0,n
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }   
+    
+    // nom au pluriel car un user peut poster pls comments
+    // cardinalité 0,n
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
+
+    // nom au pluriel car un user peut poster pls comments
+    // cardinalité 0,n
+    public function promotions()
+    {
+        return $this->hasMany(Promotion::class);
+    }
+
 }
