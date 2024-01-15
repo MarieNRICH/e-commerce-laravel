@@ -10,7 +10,7 @@ class Reviews extends Model
     use HasFactory;
 
     //je charge automatiquement le user à chq fois que je récup un msg
-    protected $with = ['user'];
+    protected $fillable = ['product_id','user_id','comment','rating'];
 
     // nom de la fonction au singulier car 1 seul user en relation 
     // cardinalité 1,1

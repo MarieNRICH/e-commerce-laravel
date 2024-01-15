@@ -20,7 +20,7 @@ class PromotionFactory extends Factory
         $faker = \Faker\Factory::create();
 
         return [
-            'promotional_code' => $faker->unique()->word,
+            'promotional_code' => $faker->word,
             'discount_amount' => $faker->randomFloat(2, 0, 100), // Chiffre aléatoire avec 2 décimales entre 0 et 100
             'discount_percentage' => $faker->numberBetween(1, 50), // Chiffre aléatoire entre 1 et 50
             'expiration_date' => $faker->date,

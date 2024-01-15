@@ -1,8 +1,13 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
+use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
+use Database\Seeders\PromotionSeeder;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PromotionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +28,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('categories',CategoryController::class);
+Route::resource('products',ProductController::class);
+Route::resource('reviews', ReviewController::class);
+Route::resource('promotions', PromotionController::class);

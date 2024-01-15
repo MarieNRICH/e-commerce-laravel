@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('title')
     Create Categories
@@ -31,12 +31,12 @@
                                     <div class="form-group">
                                         <label>Nom</label>
                                         <input type="text" name="category_name" class="form-control"
-                                            value="{{ $category->category_name }}" required>
+                                           required>
                                     </div>
                                     <div class="form-group">
                                         <label>Description</label>
                                         <input type="text" name="category_description" class="form-control"
-                                            value="{{ $category->category_description }}">
+                                           >
                                     </div>
                                     <button type="submit" class="btn btn-primary rounded-pill shadow-sm">
                                         Ajouter un produit </button>

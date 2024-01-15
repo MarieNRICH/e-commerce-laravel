@@ -9,7 +9,7 @@ class Category extends Model
 {
     use HasFactory;
 
-    // je charge automatiquement le nome et la description de categorie à chq fois que je récupère un msg
+    // je charge automatiquement le nom et la description de categorie à chq fois que je récupère un msg
     protected $fillable = ['category_name', 'category_description'];
 
     // nom au pluriel car un pdt peut regrper pls pdts

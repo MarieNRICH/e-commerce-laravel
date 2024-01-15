@@ -23,7 +23,6 @@ class ReviewsFactory extends Factory
             'user_id' => rand(1, User::count()),
             'comment' => $this->faker->paragraph(),
             'rating' => $this->faker->numberBetween([1, 5]),
-            'review_date' => $this->faker->date,
             'created_at' => now(),
             'updated_at' => now(),
         ];

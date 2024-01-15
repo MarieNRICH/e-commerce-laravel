@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -31,9 +30,10 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'category_name' => 'required|max:40',
-            'category_description' => 'required|255',
+            'category_name' => 'required|max:50',
+            'category_description' => 'required|max:255',
         ]);
+        // dd($request);
         Category::create($request->all());
 
         return redirect()->route('categories.index')
@@ -70,7 +70,7 @@ class CategoryController extends Controller
 
         $category->update($request->all());
 
-        return redirect()->back()->with('message', 'La catégorie a bien été mise à jour');
+        return redirect()->route('categories.index')->with('message', 'La catégorie a bien été mise à jour');
     }
 
     /**
@@ -78,11 +78,9 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        if (Auth::category()->id == $category->id) {
+        // dd("toto");
             $category->delete();
-            return redirect()->route('index')->with('message', 'La catégorie a bien été supprimé');
-        } else {
-            return redirect()->back()->withErrors(['erreur' => 'suppression de la catégorie impossible']);
-        }
+            return redirect()->route('categories.index')->with('message', 'La catégorie a bien été supprimé');
+
     }
 }
